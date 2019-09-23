@@ -1,10 +1,10 @@
 import React from 'react';
 
+import SearchCEP from './components/SearchCEP'
+
 function App() {
   return (
-    <div className="App">
-      teste
-    </div>
+    <SearchCEP />
   );
 }
 

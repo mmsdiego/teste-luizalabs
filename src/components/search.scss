@@ -1,0 +1,110 @@
+html, body {
+  font-family: 'Arial' 'Helvetica' 'sans-serif';
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  width: 980px;
+  margin: 0 auto;
+  max-width: 100%;
+
+  .search-cep {
+    background-color: #c9c9c9;
+    padding: 15px 20px;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    label {
+      font-size: 18px;
+    }
+
+    input {
+      border: 1px solid #909090;
+      font-size: 18px;
+      height: 35px;
+      margin: 0 10px;
+      width: 250px;
+    }
+
+    button {
+      background-color: #02a3cc;
+      border: 1px solid #02a3cc;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      height: 35px;
+      padding: 0 20px;
+
+      &:disabled {
+        background-color: #a3a3a3;
+        border-color: #a3a3a3;
+        cursor: no-drop;
+      }
+    }
+
+    .not-found {
+      color: #cc0202;
+      font-size: 18px;
+      margin: 10px 0 0;
+    }
+  }
+
+  .address {
+    border: 1px solid #909090;
+    margin-top: 5px;
+    padding: 15px 20px;
+    position: relative;
+
+    .close {
+      border: 0;
+      color: #909090;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      height: 15px;
+      line-height: 0px;
+      padding: 0;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 15px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 10px
+    }
+  }
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+
+  .marker {
+    height: 0px;
+    position: relative;
+    width: 0px;
+
+    &::before {
+      background: url('./pin.png') no-repeat 0 0 / 40px 40px;
+      bottom: 0;
+      content: '';
+      height: 40px;
+      left: -20px;
+      position: absolute;
+      width: 40px;
+    }
+  }
+}
