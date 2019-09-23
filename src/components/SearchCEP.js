@@ -17,7 +17,8 @@ class SearchCEP extends Component {
     localidade: '',
     uf: '',
     cep: '',
-    erro: false
+    erro: false,
+    isLoading: false
   }
 
   cepMask = value => {
@@ -35,8 +36,8 @@ class SearchCEP extends Component {
   }
 
   onSearchCEP = value => {
-    value.replace('-', '')
-    const uri = `https://viacep.com.br/ws/${value}/json/`
+    this.setState({ isLoading: true })
+    const uri = `https://viacep.com.br/ws/${value.replace('-', '')}/json/`
 
     axios.get(uri).then(({data}) => {
       console.log(data)
@@ -63,7 +64,7 @@ class SearchCEP extends Component {
     const uri = `https://maps.google.com/maps/api/geocode/json?address=${address}&key=AIzaSyCCQXqYFEdA-51xelNu2znWFjcQPegaNd0`
 
     axios.get(uri).then(res => {
-      this.setState({ location: res.data.results[0].geometry.location})
+      this.setState({ location: res.data.results[0].geometry.location, isLoading: false })
     })
   }
 
@@ -88,7 +89,8 @@ class SearchCEP extends Component {
       localidade,
       uf,
       cep,
-      erro
+      erro,
+      isLoading
     } = this.state
     return (
       <div className="content">
@@ -113,6 +115,13 @@ class SearchCEP extends Component {
             : null
           }
         </div>
+        {isLoading ?
+          (
+            <div className="lds-dual-ring">
+              <div />
+            </div>
+          )
+        : null}
         {location ?
           (
             <div className="address">

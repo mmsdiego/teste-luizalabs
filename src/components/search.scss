@@ -108,3 +108,66 @@ html, body {
     }
   }
 }
+
+// loading
+// generic transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+@-webkit-keyframes lds-dual-ring {
+  0% {
+      @include rotate(0);
+  }
+
+  100% {
+      @include rotate(360);
+  }
+}
+@-ms-keyframes lds-dual-ring {
+  0% {
+      @include rotate(0);
+  }
+
+  100% {
+      @include rotate(360);
+  }
+}
+@keyframes lds-dual-ring {
+  0% {
+      @include rotate(0);
+  }
+
+  100% {
+      @include rotate(360);
+  }
+}
+
+.lds-dual-ring {
+  height: 15px;
+  margin: 0 auto;
+  position: relative;
+  width: 15px;
+
+  div {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 10px;
+      left: 0;
+      border-radius: 50%;
+      border: 2px solid #000;
+      border-color: #02a3cc transparent #02a3cc transparent;
+      -webkit-animation: lds-dual-ring 0.5s linear infinite;
+      -ms-animation: lds-dual-ring 0.5s linear infinite;
+      animation: lds-dual-ring 0.5s linear infinite;
+  }
+}
